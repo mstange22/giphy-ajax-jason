@@ -65,6 +65,10 @@ img {
 	border: solid 1px black;
 }
 
+#bottom-spacer {
+	height: 10px;
+}
+
 #footer {
 	height: 80px;
 	width: 100%;
