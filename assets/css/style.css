@@ -8,6 +8,10 @@ body {
 	margin-bottom: 80px;
 }
 
+h2 {
+	margin-bottom: 20px;
+}
+
 #navbar-container {
 	max-width: 960px;
 	width: 100%;
@@ -33,8 +37,9 @@ body {
 
 #jumbotron {
 	margin: 0 auto;
-	margin-top: 30px;
-	margin-bottom: 30px;
+	margin-top: 20px;
+	margin-bottom: 20px;
+	padding-top: 0px;
 	max-width: 960px;
 	width: 95%;
 	min-height: 500px;
@@ -50,31 +55,37 @@ body {
 	padding-right: 0px;
 }
 
-.topic-btn:active:focus, .topic-btn:active:hover {
+{
 	border: 1px solid black;
 	background-color: #008080;
 }
 
-.topic-btn, .topic-btn:visited {
+#submit {
 	min-width: 55px;
-	display: block;
 	margin: 0 auto;
-	margin-top: 10px;
+	margin: 0 5px 10px 0;
+	margin-bottom: 0px;
 	border: 1px solid black;
 	background-color: #00b3b3;
 }
 
-.topic-btn:hover {
+button.btn.btn-primary.btn-sm.topic-btn, .topic-btn:visited {
+	min-width: 55px;
+	margin: 0 auto;
+	margin: 0 5px 10px 0;
+	margin-bottom: 10px;
+	border: 1px solid black;
+	background-color: #00b3b3;
+}
+
+#submit:active:focus, #submit:active:hover,
+  #submit:hover, #submit:focus, #submit:active {
 	border: 1px solid black;
 	background-color: #008080;
 }
 
-.topic-btn:focus {
-	border: 1px solid black;
-	background-color: #008080;
-}
-
-.topic-btn:active {
+.topic-btn:active:focus, .topic-btn:active:hover,
+  .topic-btn:hover, .topic-btn:focus, .topic-btn:active {
 	border: 1px solid black;
 	background-color: #008080;
 }
@@ -82,6 +93,19 @@ body {
 .rating {
 	display: block;
 	clear: both;
+}
+
+form {
+	display: block;
+	margin-top: 10px;
+}
+
+label {
+	border: 1px solid transparent;
+}
+
+input {
+	border: 1px solid black;
 }
 
 img {

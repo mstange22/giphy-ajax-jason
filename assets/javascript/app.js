@@ -5,14 +5,45 @@ var rating;
 var imgDiv;
 var topicImg;
 var state = "still";
-var btnArray = [];
+var searchTerms = ["Cat", "Kittens", "Puppies", "Ramen", "Running", "Marathon",
+                    "Triathlon"];
+var newBtn;
+var newSearchTerm;
 
-$(".topic-btn").on("click", function() {
+function addButtons() {
+
+    for(var i = 0; i < searchTerms.length; i++) {
+        newBtn = $("<button>");
+        newBtn.addClass("btn btn-primary btn-sm topic-btn");
+        newBtn.text(searchTerms[i]);
+        $("#btn-div").append(newBtn);
+    }
+}
+
+$(document).ready(function() {
+
+    addButtons();
+
+});
+
+$(document).on("click", ".topic-btn", function() {
 
     topic = $(this).text();
+
+    console.log(topic);
+
+    // replace spaces with +
+    if(topic.includes(" ")) {
+
+        topic = topic.replace(/ /g, "+");
+    }
+
+    console.log(topic);
       
     queryURL = "https://api.giphy.com/v1/gifs/search?q=" +
     topic + "&api_key=cae50eb25c8f468c83e3875b6fa5d3a4&limit=10";
+
+    console.log(queryURL);
 
     $.ajax( { url: queryURL, method: "GET" } ).done(function(response) {
 
@@ -20,7 +51,7 @@ $(".topic-btn").on("click", function() {
 
         results = response.data;
 
-        $("#img-container").html("");
+        $("#img-container").html("<h2>Click on an image to toggle animation</h2>");
 
         for (var i = 0; i < results.length; i++) {
 
@@ -39,7 +70,7 @@ $(".topic-btn").on("click", function() {
             imgDiv.append(topicImg);
             imgDiv.append(rating);
 
-            $("#img-container").prepend(imgDiv);
+            $("#img-container").append(imgDiv);
         }
     });
 });
@@ -60,4 +91,23 @@ $(document).on("click", ".topic-img", function() {
         $(this).attr("src", $(this).attr("still-url"));
         $(this).attr("state", "still");
     }
+});
+
+// on-click event handler to submit added search term
+$(document).on("click", "#submit", function(event) {
+
+    event.preventDefault();
+
+    newSearchTerm = $("#search-term").val();
+
+    if(newSearchTerm !== "") {
+
+        searchTerms.push(newSearchTerm);
+
+        $("#btn-div").html("");
+        addButtons();
+
+        $("#search-term").val("");
+    }
+
 });
