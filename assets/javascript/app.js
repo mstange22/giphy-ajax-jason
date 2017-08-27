@@ -4,8 +4,8 @@ var results;
 var rating;
 var imgDiv;
 var topicImg;
-
-console.log("cats");
+var state = "still";
+var btnArray = [];
 
 $(".topic-btn").on("click", function() {
 
@@ -20,6 +20,8 @@ $(".topic-btn").on("click", function() {
 
         results = response.data;
 
+        $("#img-container").html("");
+
         for (var i = 0; i < results.length; i++) {
 
             rating = $("<p>");
@@ -27,14 +29,35 @@ $(".topic-btn").on("click", function() {
             rating.text("Rating: " + results[i].rating);
             
             topicImg = $("<img>");
-            topicImg.attr("src", results[i].images.fixed_height.url);
+            topicImg.attr("class", "topic-img");
+            topicImg.attr("state", "still");
+            topicImg.attr("src", results[i].images.fixed_height_still.url);
+            topicImg.attr("still-url", results[i].images.fixed_height_still.url);
+            topicImg.attr("animate-url", results[i].images.fixed_height.url);
 
             imgDiv = $("<div>");
             imgDiv.append(topicImg);
             imgDiv.append(rating);
 
             $("#img-container").prepend(imgDiv);
-
         }
     });
+});
+
+// on-click event handler to toggle animation
+$(document).on("click", ".topic-img", function() {
+
+    state = $(this).attr("state");
+
+    if(state === "still") {
+
+        $(this).attr("src", $(this).attr("animate-url"));
+        $(this).attr("state", "animate");
+    }
+
+    if(state === "animate") {
+
+        $(this).attr("src", $(this).attr("still-url"));
+        $(this).attr("state", "still");
+    }
 });

@@ -24,21 +24,22 @@ body {
 	font-size: 36px;
 	font-family: inherit;
 	color: #ffffff;
-	background-color: #286090;
+	background-color: #00b3b3;
 	padding-top: 10px;
 	padding-bottom: 10px;
 	border: none;
-	border-bottom: 2px solid #000000;
+	border-bottom: 1px solid #000000;
 }
 
 #jumbotron {
 	margin: 0 auto;
 	margin-top: 30px;
 	margin-bottom: 30px;
-	width: 960px;
+	max-width: 960px;
+	width: 95%;
 	min-height: 500px;
 	text-align: center;
-	border: 2px solid black;
+	border: 1px solid black;
 	border-radius: 4px;
 	background-color: white;
 }
@@ -49,11 +50,33 @@ body {
 	padding-right: 0px;
 }
 
-.topic-btn {
+.topic-btn:active:focus, .topic-btn:active:hover {
+	border: 1px solid black;
+	background-color: #008080;
+}
+
+.topic-btn, .topic-btn:visited {
+	min-width: 55px;
 	display: block;
 	margin: 0 auto;
 	margin-top: 10px;
 	border: 1px solid black;
+	background-color: #00b3b3;
+}
+
+.topic-btn:hover {
+	border: 1px solid black;
+	background-color: #008080;
+}
+
+.topic-btn:focus {
+	border: 1px solid black;
+	background-color: #008080;
+}
+
+.topic-btn:active {
+	border: 1px solid black;
+	background-color: #008080;
 }
 
 .rating {
@@ -65,15 +88,11 @@ img {
 	border: solid 1px black;
 }
 
-#bottom-spacer {
-	height: 10px;
-}
-
 #footer {
 	height: 80px;
 	width: 100%;
-	background-color: #286090;
-	border-top: 2px solid #000000;
+	background-color: #00b3b3;
+	border-top: 1px solid #000000;
 	color: white;
     text-align: center;
     margin-top: 20px;
