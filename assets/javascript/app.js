@@ -11,7 +11,7 @@ $(".topic-btn").on("click", function() {
 
     topic = $(this).text();
       
-    queryURL = "http://api.giphy.com/v1/gifs/search?q=" +
+    queryURL = "https://api.giphy.com/v1/gifs/search?q=" +
     topic + "&api_key=cae50eb25c8f468c83e3875b6fa5d3a4&limit=10";
 
     $.ajax( { url: queryURL, method: "GET" } ).done(function(response) {
